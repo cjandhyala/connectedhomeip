@@ -28,7 +28,6 @@
 #include <app/ConcreteAttributePath.h>
 #include <lib/support/logging/CHIPLogging.h>
 
-
 using namespace ::chip;
 using namespace ::chip::app::Clusters;
 
@@ -41,9 +40,8 @@ void MatterPostAttributeChangeCallback(const chip::app::ConcreteAttributePath & 
 
     if (clusterId == DoorLock::Id && attributeId == DoorLock::Attributes::LockState::Id)
     {
-        LockMgr().InitiateAction(AppEvent::kEventType_Lock, ((*value)-1) ? LockManager::LOCK_ACTION : LockManager::UNLOCK_ACTION);
+        LockMgr().InitiateAction(AppEvent::kEventType_Lock, ((*value) - 1) ? LockManager::LOCK_ACTION : LockManager::UNLOCK_ACTION);
     }
-
 }
 
 /** @brief OnOff Cluster Init
@@ -64,7 +62,6 @@ void MatterPostAttributeChangeCallback(const chip::app::ConcreteAttributePath & 
 void emberAfDoorLockClusterInitCallback(EndpointId endpoint)
 {
     // TODO: implement any additional Cluster Server init actions
-
 }
 
 bool emberAfPluginDoorLockOnDoorLockCommand(chip::EndpointId endpointId, const Optional<ByteSpan> & pinCode, DlOperationError & err)
@@ -101,6 +98,6 @@ bool emberAfPluginDoorLockSetUser(chip::EndpointId endpointId, uint16_t userInde
                                   const DlCredential * credentials, size_t totalCredentials)
 {
 
-    return LockMgr().SetUser(userIndex, creator, modifier, userName, uniqueId, userStatus, usertype,
-                                           credentialRule, credentials, totalCredentials);
+    return LockMgr().SetUser(userIndex, creator, modifier, userName, uniqueId, userStatus, usertype, credentialRule, credentials,
+                             totalCredentials);
 }

@@ -33,7 +33,6 @@ using namespace ::chip;
 
 static constexpr size_t DOOR_LOCK_CREDENTIAL_INFO_MAX_DATA_SIZE = 20;
 
-
 struct LockUserInfo;
 struct LockCredentialInfo;
 struct WeekDaysScheduleInfo;
@@ -115,6 +114,7 @@ public:
 
     bool SetCredential(chip::EndpointId endpointId, DlCredentialStatus credentialStatus, DlCredentialType credentialType,
                        const chip::ByteSpan & credentialData);
+
 private:
     bool setLockState(DlLockState lockState, const Optional<chip::ByteSpan> & pin, DlOperationError & err);
     const char * lockStateToString(DlLockState lockState) const;
