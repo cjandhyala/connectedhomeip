@@ -324,7 +324,7 @@ bool LockManager::GetCredential(chip::EndpointId endpointId, DlCredentialType cr
     credential.credentialType = credentialInStorage.credentialType;
     credential.credentialData = chip::ByteSpan(credentialInStorage.credentialData, credentialInStorage.credentialDataSize);
 
-    ChipLogDetail(Zcl, "Found occupied credential [type=%u,dataSize=%zu]", 
+    ChipLogDetail(Zcl, "Found occupied credential [type=%u,dataSize=%zu]",
                   to_underlying(credential.credentialType), credential.credentialData.size());
 
     return true;
@@ -353,7 +353,7 @@ bool LockManager::SetCredential(chip::EndpointId endpointId, DlCredentialStatus 
     memcpy(credentialInStorage.credentialData, credentialData.data(), credentialData.size());
     credentialInStorage.credentialDataSize = credentialData.size();
 
-    ChipLogProgress(Zcl, "Successfully set the credential [credentialType=%u]", 
+    ChipLogProgress(Zcl, "Successfully set the credential [credentialType=%u]",
                     to_underlying(credentialType));
 
     return true;

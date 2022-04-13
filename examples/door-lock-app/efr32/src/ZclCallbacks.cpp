@@ -43,7 +43,7 @@ void MatterPostAttributeChangeCallback(const chip::app::ConcreteAttributePath & 
     {
         LockMgr().InitiateAction(AppEvent::kEventType_Lock, ((*value)-1) ? LockManager::LOCK_ACTION : LockManager::UNLOCK_ACTION);
     }
-    
+
 }
 
 /** @brief OnOff Cluster Init
