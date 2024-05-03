@@ -117,15 +117,20 @@ enum
     kDeviceOption_FaultInjection,
 #endif
 <<<<<<< HEAD
+<<<<<<< HEAD
 #if CHIP_DEVICE_CONFIG_ENABLE_WIFIPAF
     kDeviceOption_WiFi_PAF,
 #endif
 =======
     kDeviceOption_VendorName = 0x1028,
     kDeviceOption_ProductName = 0x1029,
+=======
+    kDeviceOption_VendorName            = 0x1028,
+    kDeviceOption_ProductName           = 0x1029,
+>>>>>>> 6c62371e00 (fixed few typos)
     kDeviceOption_HardwareVersionString = 0x102a,
     kDeviceOption_SoftwareVersionString = 0x102b,
-    kDeviceOption_SerialNumber = 0x102c,
+    kDeviceOption_SerialNumber          = 0x102c,
 
 >>>>>>> 901253cb57 (added code to read vendor_name, product_name, hardware_version_string and software_version_string to read from config in reference linux and darwin platform)
 };
@@ -151,7 +156,7 @@ OptionDef sDeviceOptionDefs[] = {
     { "product-id", kArgumentRequired, kDeviceOption_ProductID },
     { "vendor-name", kArgumentRequired, kDeviceOption_VendorName },
     { "product-name", kArgumentRequired, kDeviceOption_ProductName },
-    { "harware-version-string", kArgumentRequired, kDeviceOption_HardwareVersionString },
+    { "hardware-version-string", kArgumentRequired, kDeviceOption_HardwareVersionString },
     { "software-version-string", kArgumentRequired, kDeviceOption_SoftwareVersionString },
     { "serial-number", kArgumentRequired, kDeviceOption_SerialNumber },
     { "custom-flow", kArgumentRequired, kDeviceOption_CustomFlow },
@@ -242,6 +247,21 @@ const char * sDeviceOptionHelp =
     "       The Vendor ID is assigned by the Connectivity Standards Alliance.\n"
     "\n"
     "  --product-id <id>\n"
+    "       The Product ID is specified by vendor.\n"
+    "\n"
+    "  --vendor-name <id>\n"
+    "       The Product ID is specified by vendor.\n"
+    "\n"
+    "  --product-name <id>\n"
+    "       The Product ID is specified by vendor.\n"
+    "\n"
+    "  --hardware-version-string <id>\n"
+    "       The Product ID is specified by vendor.\n"
+    "\n"
+    "  --software-version-string <id>\n"
+    "       The Product ID is specified by vendor.\n"
+    "\n"
+    "  --serial-number <id>\n"
     "       The Product ID is specified by vendor.\n"
     "\n"
     "  --custom-flow <Standard = 0 | UserActionRequired = 1 | Custom = 2>\n"
@@ -690,7 +710,6 @@ bool HandleOption(const char * aProgram, OptionSet * aOptions, int aIdentifier, 
             retval = false;
         }
         break;
-    
     }
 #endif
 <<<<<<< HEAD
@@ -713,16 +732,20 @@ bool HandleOption(const char * aProgram, OptionSet * aOptions, int aIdentifier, 
     case kDeviceOption_HardwareVersionString:
         LinuxDeviceOptions::GetInstance().hardwareVersionString.SetValue(std::string{ aValue });
         break;
-    
+
     case kDeviceOption_SoftwareVersionString:
         LinuxDeviceOptions::GetInstance().softwareVersionString.SetValue(std::string{ aValue });
         break;
-    
+
     case kDeviceOption_SerialNumber:
         LinuxDeviceOptions::GetInstance().serialNumber.SetValue(std::string{ aValue });
         break;
+<<<<<<< HEAD
         
 >>>>>>> 901253cb57 (added code to read vendor_name, product_name, hardware_version_string and software_version_string to read from config in reference linux and darwin platform)
+=======
+
+>>>>>>> 6c62371e00 (fixed few typos)
     default:
         PrintArgError("%s: INTERNAL ERROR: Unhandled option: %s\n", aProgram, aName);
         retval = false;
