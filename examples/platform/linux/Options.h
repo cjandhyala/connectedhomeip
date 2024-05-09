@@ -87,18 +87,20 @@ struct LinuxDeviceOptions
     int32_t subscriptionCapacity                   = CHIP_IM_MAX_NUM_SUBSCRIPTIONS;
     int32_t subscriptionResumptionRetryIntervalSec = -1;
 #endif
-<<<<<<< HEAD
+
 #if CHIP_CONFIG_USE_ACCESS_RESTRICTIONS
     chip::Optional<std::vector<chip::Access::AccessRestrictionProvider::Entry>> commissioningArlEntries;
     chip::Optional<std::vector<chip::Access::AccessRestrictionProvider::Entry>> arlEntries;
 #endif
-=======
+
     chip::Optional<std::string> vendorName;
     chip::Optional<std::string> productName;
     chip::Optional<std::string> hardwareVersionString;
     chip::Optional<std::string> softwareVersionString;
+#if defined(CHIP_DEVICE_CONFIG_TEST_SERIAL_NUMBER)
     chip::Optional<std::string> serialNumber;
->>>>>>> 901253cb57 (added code to read vendor_name, product_name, hardware_version_string and software_version_string to read from config in reference linux and darwin platform)
+#endif
+
     static LinuxDeviceOptions & GetInstance();
 };
 

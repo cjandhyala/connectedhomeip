@@ -116,23 +116,19 @@ enum
 #if CHIP_WITH_NLFAULTINJECTION
     kDeviceOption_FaultInjection,
 #endif
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 #if CHIP_DEVICE_CONFIG_ENABLE_WIFIPAF
     kDeviceOption_WiFi_PAF,
 #endif
-=======
+
     kDeviceOption_VendorName = 0x1028,
     kDeviceOption_ProductName = 0x1029,
-=======
     kDeviceOption_VendorName            = 0x1028,
     kDeviceOption_ProductName           = 0x1029,
->>>>>>> 6c62371e00 (fixed few typos)
     kDeviceOption_HardwareVersionString = 0x102a,
     kDeviceOption_SoftwareVersionString = 0x102b,
     kDeviceOption_SerialNumber          = 0x102c,
 
->>>>>>> 901253cb57 (added code to read vendor_name, product_name, hardware_version_string and software_version_string to read from config in reference linux and darwin platform)
 };
 
 constexpr unsigned kAppUsageLength = 64;
@@ -249,19 +245,19 @@ const char * sDeviceOptionHelp =
     "  --product-id <id>\n"
     "       The Product ID is specified by vendor.\n"
     "\n"
-    "  --vendor-name <id>\n"
+    "  --vendor-name <name>\n"
     "       The vendor name specified by the vendor.\n"
     "\n"
-    "  --product-name <id>\n"
+    "  --product-name <name>\n"
     "       The product name specified by vendor.\n"
     "\n"
-    "  --hardware-version-string <id>\n"
+    "  --hardware-version-string <string>\n"
     "       The hardware version string specified by vendor.\n"
     "\n"
-    "  --software-version-string <id>\n"
+    "  --software-version-string <string>\n"
     "       The software version string specified by vendor.\n"
     "\n"
-    "  --serial-number <id>\n"
+    "  --serial-number <serial_number>\n"
     "       The serial number specified by vendor.\n"
     "\n"
     "  --custom-flow <Standard = 0 | UserActionRequired = 1 | Custom = 2>\n"
@@ -712,7 +708,7 @@ bool HandleOption(const char * aProgram, OptionSet * aOptions, int aIdentifier, 
         break;
     }
 #endif
-<<<<<<< HEAD
+
 #if CHIP_DEVICE_CONFIG_ENABLE_WIFIPAF
     case kDeviceOption_WiFi_PAF: {
         LinuxDeviceOptions::GetInstance().mWiFiPAF        = true;
@@ -720,7 +716,6 @@ bool HandleOption(const char * aProgram, OptionSet * aOptions, int aIdentifier, 
         break;
     }
 #endif
-=======
     case kDeviceOption_VendorName:
         LinuxDeviceOptions::GetInstance().vendorName.SetValue(std::string{ aValue });
         break;
@@ -740,12 +735,7 @@ bool HandleOption(const char * aProgram, OptionSet * aOptions, int aIdentifier, 
     case kDeviceOption_SerialNumber:
         LinuxDeviceOptions::GetInstance().serialNumber.SetValue(std::string{ aValue });
         break;
-<<<<<<< HEAD
-        
->>>>>>> 901253cb57 (added code to read vendor_name, product_name, hardware_version_string and software_version_string to read from config in reference linux and darwin platform)
-=======
 
->>>>>>> 6c62371e00 (fixed few typos)
     default:
         PrintArgError("%s: INTERNAL ERROR: Unhandled option: %s\n", aProgram, aName);
         retval = false;
