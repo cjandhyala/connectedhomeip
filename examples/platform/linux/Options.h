@@ -97,9 +97,11 @@ struct LinuxDeviceOptions
     chip::Optional<std::string> productName;
     chip::Optional<std::string> hardwareVersionString;
     chip::Optional<std::string> softwareVersionString;
-#if defined(CHIP_DEVICE_CONFIG_TEST_SERIAL_NUMBER)
     chip::Optional<std::string> serialNumber;
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> 9e642fae56 (defined vendor_name, product_name, hardware_version_string and software_version_string config variables in all platforms)
 
     static LinuxDeviceOptions & GetInstance();
 };
